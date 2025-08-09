@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/wedding_invitation/static/css/main.8b59f4bd.css",
+    "main.js": "/wedding_invitation/static/js/main.3f4a61c8.js",
+    "static/media/청첩장용 서비스컷 -1.jpg": "/wedding_invitation/static/media/청첩장용 서비스컷 -1.d4e433a87ebbf431dae6.jpg",
+    "index.html": "/wedding_invitation/index.html",
+    "main.8b59f4bd.css.map": "/wedding_invitation/static/css/main.8b59f4bd.css.map",
+    "main.3f4a61c8.js.map": "/wedding_invitation/static/js/main.3f4a61c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b59f4bd.css",
+    "static/js/main.3f4a61c8.js"
+  ]
+}

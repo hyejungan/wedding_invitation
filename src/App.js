@@ -1,24 +1,35 @@
 import './style/global.css';
-import coverImg from './assets/청첩장용 서비스컷 -1.jpg'
+import coverImg from './assets/cover.png'
 export default function App() {
   return (
-    <div className="hero-bg hero-blob">
+    <div className="hero-bg">
       <main className="container">
-        <header className="section center">
-          <div className="eyebrow">Wedding Invitation</div>
-          <h1>Hyejung & Heerak</h1>
-          <p className="muted mt-2">2025년 11월 15일 · 부산 영도구 목장원 야외웨딩홀</p>
-          <img className="cover rounded-lg shadow mt-6" src={coverImg} alt="cover" />
+          <img src={coverImg} alt="cover" />
+
+
+        <section className="section">
+          <div className='center'>
+            <h3 className='text-b-dg'>소중한 분들을<br/> 초대합니다.</h3>
+            <div className='mt-10 flex-c'>
+              <p>낯선 여행지에서 서로 닮은 얼굴을 마주보며 나눈 웃음은<br/>
+              평생의 사랑을 약속하게 했습니다. </p>
+              <p>따뜻한 겨울, 부부로서<br/>
+              새로운 여행을 함께 떠나려 합니다.</p>
+              <p>
+              저희 여행의 출발점에 초대드리오니<br/>
+              오셔서 많이 축복해 주시면 큰 기쁨이겠습니다</p>
+            </div>
+          </div>
+          <div className="mt-12 center">
+            <p className='text-b-lg'>손기칠 ・ 김순애 <span className="text-muted">의 차남</span> 손희락</p>
+            <p className='text-b-lg'>안병현 ・ 박경영 <span className="text-muted">의 장녀</span> 안혜정</p>
+          </div>
+        </section>
+
+        <section>
           <div className="mt-6">
             <button className="btn btn-primary">캘린더 저장</button>
             <button className="btn btn-secondary" style={{marginLeft:8}}>오시는 길</button>
-          </div>
-        </header>
-
-        <section className="section">
-          <h2>인사드립니다</h2>
-          <div className="card card-content mt-4">
-            서로의 마음을 확인하고 하나의 길을 걷기로 했습니다. 따뜻한 축복 부탁드립니다.
           </div>
         </section>
 

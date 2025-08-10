@@ -1,15 +1,12 @@
-/* Mobile-first global styles for a wedding invite (works without Tailwind)
-   - Keep base canvas responsive but lock content width to a comfy mobile size
-   - Light system font stack for performance
-   - Design tokens via CSS variables
-*/
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
-/* === Design tokens === */
 :root {
-  --bg: #ffffff;
+  --bg: #fff;
   --bg-soft: #f7f7fb;
   --text: #111113;
-  --text-muted: #6b7280; /* gray-500ish */
+  --text-dg: #0a270a;
+  --text-lg : #809E70;
+  --text-muted: #37393b; /* gray-500ish */
   --primary: #111113;    /* near-black for high contrast */
   --secondary: #f2f2f6;  /* soft gray */
   --accent: #ffdfe7;     /* soft pink accent */
@@ -29,6 +26,8 @@
   --space-6: 24px;
   --space-8: 32px;
   --space-10: 40px;
+  --space-12: 60px;
+  --space-20: 150px;
 }
 
 /* === CSS reset / base === */
@@ -39,7 +38,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: "Gowun Batang";
   line-height: 1.55;
 }
 img, picture, video, canvas, svg { display: block; max-width: 100%; }
@@ -57,21 +56,23 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   max-width: 420px; /* mobile comfort width */
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
-.section { padding: var(--space-10) 0; }
+.section { padding: var(--space-20) 0;}
 .section + .section { padding-top: 0; }
 
 .center { text-align: center; }
 .muted { color: var(--text-muted); }
+.flex-c {
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
 /* Soft backdrop blobs for hero (optional) */
 .hero-bg {
   position: relative;
-  background:
-    radial-gradient(90% 60% at 10% 10%, #f9f9ff 0%, transparent 60%),
-    radial-gradient(70% 50% at 95% 0%, #eef7ff 0%, transparent 60%);
 }
 .hero-blob::before,
 .hero-blob::after {
@@ -94,7 +95,10 @@ h3 { font-size: 18px; line-height: 1.25; margin: 0 0 var(--space-3); }
 p  { margin: 0 0 var(--space-3); }
 .small { font-size: 13px; }
 .eyebrow { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--text-muted); }
-
+.text-b {color : var(--text);}
+.text-muted {color: var(--text-muted);}
+.text-b-dg {font-weight:1200; color: var(--text-dg);}
+.text-b-lg {font-weight:900; color: var(--text-lg);}
 /* Bump type slightly on wide screens while keeping mobile width */
 @media (min-width: 640px) {
   h1 { font-size: 36px; }
@@ -129,6 +133,7 @@ p  { margin: 0 0 var(--space-3); }
 /* === Images === */
 .rounded { border-radius: var(--radius); }
 .rounded-lg { border-radius: var(--radius-lg); }
+.rounded-bt {border-bottom-right-radius: var(--radius); border-bottom-left-radius: var(--radius);}
 .shadow { box-shadow: var(--shadow-soft); }
 .cover { width: 100%; height: 100%; object-fit: cover; }
 
@@ -149,6 +154,9 @@ p  { margin: 0 0 var(--space-3); }
 .mt-4 { margin-top: var(--space-4); }
 .mt-6 { margin-top: var(--space-6); }
 .mt-8 { margin-top: var(--space-8); }
+.mt-10 {margin-top: var(--space-10); }
+.mt-12 {margin-top: var(--space-12); }
+.mt-20 {margin-top: var(--space-20); }
 
 /* === Map placeholder === */
 .map-frame { height: 220px; background: var(--bg-soft); border: 1px dashed var(--border); border-radius: var(--radius); display: grid; place-items: center; color: var(--text-muted); }

@@ -1,14 +1,33 @@
+// App.jsx
 import './style/global.css';
-import coverImg from './assets/cover.png'
+import coverImg from './assets/cover.png';
 import WeddingCalendar from './calender';
+import DayBox from './daybox';
+import { getDiffParts, WEDDING_TIME } from './create_day';
+import { useEffect, useState } from "react";
 
 export default function App() {
+  const [now, setNow] = useState(new Date());
+
+  useEffect(() => {
+    const tick = () => {
+      const n = new Date();
+      setNow(n);
+      if (n >= WEDDING_TIME) {
+        clearInterval(id);
+      }
+    };
+    const id = setInterval(tick, 1000);
+    tick(); // 즉시 1회 업데이트
+    return () => clearInterval(id);
+  }, []);
+
+  const parts = getDiffParts(now);
 
   return (
     <div className="hero-bg">
       <main className="container">
-          <img src={coverImg} alt="cover" />
-
+        <img src={coverImg} alt="cover" />
 
         <section className="section">
           <div className='center'>
@@ -31,12 +50,18 @@ export default function App() {
 
         <section>
           <div className="mt-6">
-            <p className='center'>WEDDING DAY</p>
+            <h1 className='center'>WEDDING DAY</h1>
             <WeddingCalendar date={new Date(2025, 10, 15)} />
           </div>
         </section>
 
-        <section className="section">
+        <div className='flex-row day-box'>
+          {parts.map((p) => (
+            <DayBox key={p.label} value={p.value} label={p.label} />
+          ))}
+        </div>
+
+        <section className="section" id="map">
           <h2>결혼식 안내</h2>
           <div className="card card-content mt-4">
             <div className="list">

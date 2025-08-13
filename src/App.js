@@ -1,6 +1,9 @@
 import './style/global.css';
 import coverImg from './assets/cover.png'
+import WeddingCalendar from './calender';
+
 export default function App() {
+
   return (
     <div className="hero-bg">
       <main className="container">
@@ -28,8 +31,8 @@ export default function App() {
 
         <section>
           <div className="mt-6">
-            <button className="btn btn-primary">캘린더 저장</button>
-            <button className="btn btn-secondary" style={{marginLeft:8}}>오시는 길</button>
+            <p className='center'>WEDDING DAY</p>
+            <WeddingCalendar date={new Date(2025, 10, 15)} />
           </div>
         </section>
 

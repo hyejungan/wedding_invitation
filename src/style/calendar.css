@@ -1,0 +1,100 @@
+/* ===== Palette (배경 #E3E4DB와 어울리는 세이지톤) ===== */
+:root {
+  --accent: #7c8c68; /* 강조(선택 날짜) */
+  --text: #111827; /* 기본 텍스트 */
+  --sun: #d94a4a; /* 일요일 */
+  --sat: #6b7280; /* 토요일(회색) */
+}
+
+.wc {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 네비게이션 제거 & 포커스 외곽선 제거 */
+.wc .react-calendar__navigation {
+  display: none;
+}
+.wc,
+.wc *:focus {
+  outline: none;
+}
+
+/* 요일 헤더 (일~토) */
+.wc .react-calendar__month-view__weekdays {
+  text-align: center;
+  margin: 0;
+  padding: 0.25rem 0 0.5rem;
+  border: none;
+}
+.wc .react-calendar__month-view__weekdays__weekday {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  border: none;
+}
+.wc .react-calendar__month-view__weekdays__weekday abbr[title] {
+  text-decoration: none;
+}
+/* 헤더 색만 nth-child로(헤더는 항상 일~토 고정) */
+.wc .react-calendar__month-view__weekdays__weekday:nth-child(1) {
+  color: var(--sun);
+}
+.wc .react-calendar__month-view__weekdays__weekday:nth-child(7) {
+  color: var(--sat);
+}
+
+/* 날짜 타일: 여유 + 정사각형 */
+.wc .react-calendar__tile {
+  border: none;
+  background: transparent;
+  height: 64px; /* ↑ 여유 줌 */
+  aspect-ratio: 1 / 1; /* 정사각형 유지 */
+  display: grid;
+  place-items: center;
+  cursor: default;
+  pointer-events: none; /* 완전 고정 */
+}
+.wc .react-calendar__tile abbr {
+  display: inline-block;
+  line-height: 1;
+  padding: 9px 13px; /* 원형 크기 */
+  border-radius: 9999px;
+  font-size: 1.12rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* 이웃 달 날짜 숨김 (보호용) */
+.wc .react-calendar__month-view__days__day--neighboringMonth {
+  visibility: hidden;
+}
+
+/* --- 요일별 날짜 색상(정확한 요일 판정: tileClassName에서 클래스 부여) --- */
+.wc .is-sun abbr {
+  color: var(--sun);
+} /* 일요일 날짜는 빨강 */
+.wc .is-sat abbr {
+  color: var(--sat);
+} /* 토요일 날짜는 회색 */
+
+/* 선택 날짜(고정일) 강조 — 세이지톤 배경 */
+.wc .is-wedding abbr {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* 작은 화면 조정 */
+@media (max-width: 400px) {
+  .wc .react-calendar__tile {
+    height: 56px;
+  }
+  .wc .react-calendar__tile abbr {
+    padding: 7px 11px;
+    font-size: 1.05rem;
+  }
+}

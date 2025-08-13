@@ -99,7 +99,7 @@ p  { margin: 0 0 var(--space-3); }
 .text-muted {color: var(--text-muted);}
 .text-b-dg {font-weight:1200; color: var(--text-dg);}
 .text-b-lg {font-weight:900; color: var(--text-lg);}
-/* Bump type slightly on wide screens while keeping mobile width */
+
 @media (min-width: 640px) {
   h1 { font-size: 36px; }
   h2 { font-size: 26px; }

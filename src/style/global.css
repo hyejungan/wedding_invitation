@@ -186,3 +186,169 @@ hr { margin: var(--space-5) var(--space-2); color : var(--text-dg)}
 .list .row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
 .list .label { color: var(--text-muted); font-size: 13px; min-width: 64px; }
 .list .value { font-weight: 500; }
+
+.wg-wrap { width: 100%; }
+
+.wg-grid {
+  column-width: 260px; 
+  column-gap: 16px;
+}
+@media (max-width: 640px) {
+  .wg-grid { column-width: 180px; column-gap: 12px; }
+}
+
+.wg-item { margin: 0 0 16px; }
+
+.wg-thumb {
+  display: block; width: 100%; border: 0; padding: 0; margin: 0;
+  background: #f5f5f4; border-radius: 16px; overflow: hidden; cursor: pointer;
+}
+.wg-thumb img { width: 100%; height: auto; display: block; }
+
+.wg-cap { font-size: 0.9rem; color: #4b5563; margin-top: 6px; text-align: center; }
+
+.wg-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.72);
+  display: grid; place-items: center; z-index: 50;
+}
+.wg-full { max-width: 92vw; max-height: 82vh; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+.wg-full-cap { margin-top: 10px; color: #f3f4f6; text-align: center; }
+
+.wg-close {
+  position: fixed; top: 16px; right: 16px; font-size: 28px; line-height: 1;
+  background: rgba(0,0,0,.5); color: white; border: none; border-radius: 999px; width: 40px; height: 40px;
+  cursor: pointer;
+}
+.wg-nav {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,.5); color: white; border: none; border-radius: 999px;
+  width: 44px; height: 44px; font-size: 26px; cursor: pointer;
+}
+.wg-nav.prev { left: 16px; }
+.wg-nav.next { right: 16px; }
+/* ===== AlbumSection ===== */
+.album-section {
+  padding: 16px 14px 28px; /* 스크린샷처럼 여백 좁게 */
+  margin-top: var(--space-20);
+}
+
+.album-title {
+  margin: 0 4px 30px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* 3열 그리드 + 둥근 사각 타일 + 일정 간격 (세로 스크롤 기본 레이아웃) */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;                 /* 카드 사이 간격 */
+}
+
+/* 공통 타일 스타일 */
+.album-tile {
+  aspect-ratio: 1 / 1;       /* 정사각형 */
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f7f7f7;
+  padding: 0;
+  border: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.album-tile img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;         /* 중앙 크롭 */
+  transform: translateZ(0);  /* 모바일 렌더링 매끄럽게 */
+  transition: transform 80ms, filter 120ms;
+}
+
+/* 터치/호버 피드백: 살짝 확대 + 밝기 */
+.album-tile:active img { transform: scale(0.98); }
+@media (hover: hover) {
+  .album-tile:hover img { filter: brightness(1.02); }
+}
+
+/* 아주 작은 화면에서 여백 맞춤 (선택) */
+@media (max-width: 360px) {
+  .album-grid { gap: 10px; }
+  .album-tile { border-radius: 12px; }
+}
+
+/* ===== Horizontal: 4행 유지 + 가로 스크롤 그리드 =====
+   - 열이 옆으로 끝없이 늘어남
+   - 화면에는 보통 3열 × 4행(=12장) 보이고, 좌우로 스크롤
+*/
+.album-scroll {
+  display: grid;
+  grid-auto-flow: column;                 /* 열 단위로 채움 (가로로 이어짐) */
+  grid-template-rows: repeat(4, 1fr);     /* ← 세로 4행 고정 */
+  gap: 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  padding: 2px 14px 16px;                 /* 좌우 여백 + 하단 약간 */
+  margin: 0 -14px;                        /* 섹션 패딩과 시각적 정렬 */
+
+  /* 한 컬럼(=타일 1개 너비)을 화면에 3개 보이도록 계산 */
+  grid-auto-columns: calc((100vw - 28px - (14px * 2)) / 3);
+  /*        (뷰포트 - 좌/우 패딩(=28px) - 열 사이 간격 2칸) / 3  */
+}
+
+/* 스크롤바 숨김 */
+.album-scroll { scrollbar-width: none; }               /* Firefox */
+.album-scroll::-webkit-scrollbar { display: none; }    /* WebKit */
+
+/* 아주 작은 화면에서 간격 재조정 */
+@media (max-width: 360px) {
+  .album-scroll {
+    gap: 10px;
+    grid-auto-columns: calc((100vw - 28px - (10px * 2)) / 3);
+  }
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(60, 60, 60, 0.55);   /* 회색 반투명 */
+  display: grid; place-items: center;
+  z-index: 999;
+}
+
+.modal-dialog {
+  width: min(92vw, 420px);              /* 모바일 우선, 최대 420px */
+  max-height: 88vh;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  position: relative;
+  padding: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.modal-img {
+  width: 100%;
+  height: auto;                         /* 비율 유지 */
+  max-height: 80vh;                     /* 화면 작아지면 세로 제한 */
+  object-fit: contain;                  /* 비율 유지 + 여백 허용 */
+  border-radius: 8px;
+}
+
+.modal-close {
+  position: absolute; top: 6px; right: 8px;
+  width: 36px; height: 36px;
+  border: 0; border-radius: 50%;
+  background: rgba(0,0,0,0.55);
+  color: #fff; font-size: 22px; line-height: 36px;
+  cursor: pointer;
+}
+.modal-close:active { transform: scale(0.96); }
+
+@media (prefers-reduced-motion: reduce) {
+  .album-tile img { transition: none; }
+}

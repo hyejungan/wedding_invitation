@@ -1,10 +1,12 @@
 // App.jsx
 import './style/global.css';
 import coverImg from './assets/cover.png';
-import WeddingCalendar from './calender';
+import WeddingSection from './weddingSection';
 import DayBox from './daybox';
 import { getDiffParts, WEDDING_TIME } from './create_day';
 import { useEffect, useState } from "react";
+import AlbumSection from "./albumSection";
+import albumPhotos from "./const/albumPhotos";
 
 export default function App() {
   const [now, setNow] = useState(new Date());
@@ -48,21 +50,16 @@ export default function App() {
           </div>
         </section>
 
-        <section>
-          <div className="mt-6">
-            <h1 className='center'>WEDDING DAY</h1>
-            <WeddingCalendar date={new Date(2025, 10, 15)} />
-          </div>
-        </section>
-
-        <div className='flex-row day-box'>
-          {parts.map((p) => (
-            <DayBox key={p.label} value={p.value} label={p.label} />
-          ))}
-        </div>
+        <WeddingSection parts={parts} DayBox={DayBox} />
+        <AlbumSection
+        title="GALLERY"
+        images={albumPhotos}
+        horizontal
+        onImageClick={(idx) => console.log("Clicked:", idx)}
+      />
 
         <section className="section" id="map">
-          <h2>결혼식 안내</h2>
+          {/* <h2>결혼식 안내</h2> */}
           <div className="card card-content mt-4">
             <div className="list">
               <div className="row"><div className="label">일시</div><div className="value">2025.11.15 14:00</div></div>

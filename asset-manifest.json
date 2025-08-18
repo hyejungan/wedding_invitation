@@ -1,14 +1,35 @@
 {
   "files": {
-    "main.css": "/wedding_invitation/static/css/main.37fccb67.css",
-    "main.js": "/wedding_invitation/static/js/main.31c31195.js",
+    "main.css": "/wedding_invitation/static/css/main.418b2555.css",
+    "main.js": "/wedding_invitation/static/js/main.0bf571b5.js",
+    "static/media/JO__3970.jpg": "/wedding_invitation/static/media/JO__3970.e8577a4d52435916df85.jpg",
+    "static/media/JO__4460.jpg": "/wedding_invitation/static/media/JO__4460.f609432e7bdd89a6d545.jpg",
+    "static/media/JO__4665.jpg": "/wedding_invitation/static/media/JO__4665.612f662d617a3c19d3e5.jpg",
+    "static/media/JO__4825.jpg": "/wedding_invitation/static/media/JO__4825.74cc7540702f40eca1f2.jpg",
+    "static/media/청첩장용 서비스컷 -2.jpg": "/wedding_invitation/static/media/청첩장용 서비스컷 -2.ad768f63eb69235a8510.jpg",
+    "static/media/JO__4889.jpg": "/wedding_invitation/static/media/JO__4889.6d689a2dc2c4a672ef9d.jpg",
+    "static/media/JO__4124.jpg": "/wedding_invitation/static/media/JO__4124.5866a6479ad360a28ccf.jpg",
+    "static/media/청첩장용 서비스컷 -1.jpg": "/wedding_invitation/static/media/청첩장용 서비스컷 -1.d4e433a87ebbf431dae6.jpg",
+    "static/media/JO__3970-mono.jpg": "/wedding_invitation/static/media/JO__3970-mono.9826fae244e201739483.jpg",
+    "static/media/JO__3836.jpg": "/wedding_invitation/static/media/JO__3836.62bb6d9333aa93a466b0.jpg",
+    "static/media/JO__3861.jpg": "/wedding_invitation/static/media/JO__3861.aa1902d12a3396d44757.jpg",
+    "static/media/JO__4460-mono.jpg": "/wedding_invitation/static/media/JO__4460-mono.4f788ce12f9cb1209135.jpg",
+    "static/media/JO__4335.jpg": "/wedding_invitation/static/media/JO__4335.9ccced27f0ea23a6aa56.jpg",
+    "static/media/JO__4665-mono.jpg": "/wedding_invitation/static/media/JO__4665-mono.d24854ade845dd5357d9.jpg",
+    "static/media/JO__4825-mono.jpg": "/wedding_invitation/static/media/JO__4825-mono.a6877bda636fd712356f.jpg",
+    "static/media/JO__4889-mono.jpg": "/wedding_invitation/static/media/JO__4889-mono.c28706fc05de900650d3.jpg",
+    "static/media/JO__4124-mono.jpg": "/wedding_invitation/static/media/JO__4124-mono.9f346e086f4d0fd553c1.jpg",
+    "static/media/JO__3836-mono.jpg": "/wedding_invitation/static/media/JO__3836-mono.16ec89db41b70cc6d99f.jpg",
+    "static/media/JO__3861-mono.jpg": "/wedding_invitation/static/media/JO__3861-mono.7d9072266dbf44a4d37b.jpg",
+    "static/media/JO__4335-mono.jpg": "/wedding_invitation/static/media/JO__4335-mono.9dd3c9b87207573f161a.jpg",
     "static/media/cover.png": "/wedding_invitation/static/media/cover.b7ce008c26e2324f4441.png",
+    "static/media/cover 2.png": "/wedding_invitation/static/media/cover 2.c6646c18165f7af088d3.png",
     "index.html": "/wedding_invitation/index.html",
-    "main.37fccb67.css.map": "/wedding_invitation/static/css/main.37fccb67.css.map",
-    "main.31c31195.js.map": "/wedding_invitation/static/js/main.31c31195.js.map"
+    "main.418b2555.css.map": "/wedding_invitation/static/css/main.418b2555.css.map",
+    "main.0bf571b5.js.map": "/wedding_invitation/static/js/main.0bf571b5.js.map"
   },
   "entrypoints": [
-    "static/css/main.37fccb67.css",
-    "static/js/main.31c31195.js"
+    "static/css/main.418b2555.css",
+    "static/js/main.0bf571b5.js"
   ]
 }

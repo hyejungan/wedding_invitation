@@ -10,6 +10,8 @@ import albumPhotos from "./const/albumPhotos";
 import DirectionsSection from "./components/DirectionSection";
 import LOCATION from "./const/location";
 import directionsAccordion from "./const/directionAccordion";
+import CONTACTS from './const/contacts';
+import ContactSection from "./components/ContactSection";
 
 export default function App() {
   const [now, setNow] = useState(new Date());
@@ -60,14 +62,15 @@ export default function App() {
           </div>
           <div className="mt-12 center">
             <p className="text-b-lg">
-              손기칠 ・ 김순애 <span className="text-muted">의 차남</span>{" "}
-              손희락
+              {CONTACTS.groom[1].name} ・ {CONTACTS.groom[2].name} <span className="text-muted">의 차남</span>{" "}
+              {CONTACTS.groom[0].name}
             </p>
             <p className="text-b-lg">
-              안병현 ・ 박경영 <span className="text-muted">의 장녀</span>{" "}
-              안혜정
+            {CONTACTS.bride[1].name} ・ {CONTACTS.bride[2].name} <span className="text-muted">의 장녀</span>{" "}
+            {CONTACTS.bride[0].name}
             </p>
           </div>
+          <ContactSection contacts={CONTACTS} />
         </section>
 
         <WeddingSection parts={parts} DayBox={DayBox} />
@@ -86,6 +89,15 @@ export default function App() {
           accordionItems={directionsAccordion}
         />
       </main>
+      <div className="mt-20 mb-8"><p>'
+        
+        
+        
+        
+        
+        
+        
+        '</p></div>
 
       <div className="floating-bar">
         <button className="btn btn-primary">저장</button>

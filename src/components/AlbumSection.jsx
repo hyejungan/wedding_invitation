@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Modal from "./modal/galleryModal";
-import "./style/global.css";
+import Modal from "../modal/GalleryModal";
+import "../style/global.css"
 
 export default function AlbumSection({
   images = [],

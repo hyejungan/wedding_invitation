@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import WeddingCalendar from "./calender";
+import WeddingCalendar from "./Calendar";
 
 const WEDDING_DATE = new Date(2025, 10, 15); // 2025-11-15
 
@@ -17,7 +17,8 @@ function AfterBlock({ customMessage }) {
   return (
     <div className="hero after">
       <p className="center">
-        축하해 주신 모든 분들께 진심으로 감사드립니다.<br/>
+        축하해 주신 모든 분들께 진심으로 감사드립니다.
+        <br />
         <span>{customMessage}</span>
       </p>
     </div>

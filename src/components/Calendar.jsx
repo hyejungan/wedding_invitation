@@ -1,5 +1,5 @@
 import Calendar from 'react-calendar';
-import './style/calendar.css';
+import "../style/calendar.css"
 
 const WEDDING_DATE = new Date(2025, 10, 15); // 2025-11-15
 

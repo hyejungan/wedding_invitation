@@ -12,6 +12,27 @@ import LOCATION from "./const/location";
 import directionsAccordion from "./const/directionAccordion";
 import CONTACTS from './const/contacts';
 import ContactSection from "./components/ContactSection";
+import { TABS, LABELS, GUIDE, BUSAN_SHUTTLE, CHARTER } from "./const/transport";
+import TransportTabs from "./components/TransportTabs";
+import MessageSection from "./components/MessageSection";
+const MAINTENANCE = false;
+
+function UnderConstruction() {
+  return (
+    <main className="maint-wrap">
+      <section className="maint-card" role="status" aria-live="polite">
+        <div className="maint-badge">🛠️</div>
+        <h1 className="maint-title">페이지 리뉴얼 중</h1>
+        <p className="maint-sub">더 예쁜 초대장을 준비하고 있어요.</p>
+
+        <div className="maint-loader" aria-hidden="true">
+          <span className="dot" /><span className="dot" /><span className="dot" />
+        </div>
+      </section>
+    </main>
+  );
+}
+
 
 export default function App() {
   const [now, setNow] = useState(new Date());
@@ -32,7 +53,10 @@ export default function App() {
   const parts = getDiffParts(now);
 
   return (
-    <div className="hero-bg">
+    <>{
+      MAINTENANCE ? (
+        <UnderConstruction />
+      ) : ( <div className="hero-bg">
       <main className="container">
         <img src={coverImg} alt="cover" />
 
@@ -88,6 +112,14 @@ export default function App() {
           shareUrl="https://naver.me/F1rxqNQ8"
           accordionItems={directionsAccordion}
         />
+        <TransportTabs
+          tabs={TABS}
+          labels={LABELS}
+          guide={GUIDE}
+          busan={BUSAN_SHUTTLE}
+          charter={CHARTER}
+        />
+        <MessageSection brand='#809E70'/>
       </main>
       <div className="mt-20 mb-8"><p>'
         
@@ -105,6 +137,9 @@ export default function App() {
           지도
         </a>
       </div>
-    </div>
+    </div>)
+    }
+    </>
+    
   );
 }

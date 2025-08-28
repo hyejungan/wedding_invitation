@@ -15,6 +15,10 @@ import ContactSection from "./components/ContactSection";
 import { TABS, LABELS, GUIDE, BUSAN_SHUTTLE, CHARTER } from "./const/transport";
 import TransportTabs from "./components/TransportTabs";
 import MessageSection from "./components/MessageSection";
+import CoverTypeScroll from "./components/CoverTypeScroll";
+import Reveal from "./components/Reveal";
+import RevealStagger from "./components/RevealStagger";
+
 const MAINTENANCE = false;
 
 function UnderConstruction() {
@@ -51,85 +55,98 @@ export default function App() {
   }, []);
 
   const parts = getDiffParts(now);
-
+  if (MAINTENANCE) return <UnderConstruction />;
   return (
-    <>{
-      MAINTENANCE ? (
-        <UnderConstruction />
-      ) : ( <div className="hero-bg">
+    <div className="hero-bg">
       <main className="container">
-        <img src={coverImg} alt="cover" />
+        <CoverTypeScroll
+          coverSrc={coverImg}
+        />
 
         <section className="section">
-          <div className="center">
-            <h3 className="text-b-dg">
-              소중한 분들을
-              <br /> 초대합니다.
-            </h3>
-            <div className="mt-10 flex-c">
-              <p>
-                낯선 여행지에서 서로 닮은 얼굴을 마주보며 나눈 웃음은
-                <br />
-                평생의 사랑을 약속하게 했습니다.{" "}
+          <Reveal>
+            <div className="center">
+              <h3 className="text-b-dg">
+                소중한 분들을
+                <br /> 초대합니다.
+              </h3>
+              <div className="mt-10 flex-c">
+                <RevealStagger>
+                  <p>
+                    낯선 여행지에서 서로 닮은 얼굴을 마주보며 나눈 웃음은
+                    <br />
+                    평생의 사랑을 약속하게 했습니다.
+                  </p>
+                  <p>
+                    따뜻한 겨울, 부부로서
+                    <br />
+                    새로운 여행을 함께 떠나려 합니다.
+                  </p>
+                  <p>
+                    저희 여행의 출발점에 초대드리오니
+                    <br />
+                    오셔서 많이 축복해 주시면 큰 기쁨이겠습니다
+                  </p>
+                </RevealStagger>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal y={20} delay={0.1}>
+            <div className="mt-12 center">
+              <p className="text-b-lg">
+                {CONTACTS.groom[1].name} ・ {CONTACTS.groom[2].name}{" "}
+                <span className="text-muted">의 차남</span> {CONTACTS.groom[0].name}
               </p>
-              <p>
-                따뜻한 겨울, 부부로서
-                <br />
-                새로운 여행을 함께 떠나려 합니다.
-              </p>
-              <p>
-                저희 여행의 출발점에 초대드리오니
-                <br />
-                오셔서 많이 축복해 주시면 큰 기쁨이겠습니다
+              <p className="text-b-lg">
+                {CONTACTS.bride[1].name} ・ {CONTACTS.bride[2].name}{" "}
+                <span className="text-muted">의 장녀</span> {CONTACTS.bride[0].name}
               </p>
             </div>
-          </div>
-          <div className="mt-12 center">
-            <p className="text-b-lg">
-              {CONTACTS.groom[1].name} ・ {CONTACTS.groom[2].name} <span className="text-muted">의 차남</span>{" "}
-              {CONTACTS.groom[0].name}
-            </p>
-            <p className="text-b-lg">
-            {CONTACTS.bride[1].name} ・ {CONTACTS.bride[2].name} <span className="text-muted">의 장녀</span>{" "}
-            {CONTACTS.bride[0].name}
-            </p>
-          </div>
-          <ContactSection contacts={CONTACTS} />
+          </Reveal>
+
+          <Reveal y={24}>
+            <ContactSection contacts={CONTACTS} />
+          </Reveal>
         </section>
 
-        <WeddingSection parts={parts} DayBox={DayBox} />
+        <Reveal y={28} >
+          <WeddingSection parts={parts} DayBox={DayBox} />
+        </Reveal>
+
         <AlbumSection
           title="GALLERY"
           images={albumPhotos}
           horizontal
           onImageClick={(idx) => console.log("Clicked:", idx)}
         />
-        <DirectionsSection
-          placeName={LOCATION.placeName}
-          address={LOCATION.address}
-          lat={LOCATION.lat}
-          lng={LOCATION.lng}
-          shareUrl="https://naver.me/F1rxqNQ8"
-          accordionItems={directionsAccordion}
-        />
-        <TransportTabs
-          tabs={TABS}
-          labels={LABELS}
-          guide={GUIDE}
-          busan={BUSAN_SHUTTLE}
-          charter={CHARTER}
-        />
-        <MessageSection brand='#809E70'/>
+
+
+        <Reveal y={24} >
+          <DirectionsSection
+            placeName={LOCATION.placeName}
+            address={LOCATION.address}
+            lat={LOCATION.lat}
+            lng={LOCATION.lng}
+            shareUrl="https://naver.me/F1rxqNQ8"
+            accordionItems={directionsAccordion}
+          />
+        </Reveal>
+
+        <Reveal y={24} >
+          <TransportTabs
+            tabs={TABS}
+            labels={LABELS}
+            guide={GUIDE}
+            busan={BUSAN_SHUTTLE}
+            charter={CHARTER}
+          />
+        </Reveal>
+
+        <Reveal y={28} >
+          <MessageSection brand="#809E70" />
+        </Reveal>
       </main>
-      <div className="mt-20 mb-8"><p>'
-        
-        
-        
-        
-        
-        
-        
-        '</p></div>
 
       <div className="floating-bar">
         <button className="btn btn-primary">저장</button>
@@ -137,9 +154,6 @@ export default function App() {
           지도
         </a>
       </div>
-    </div>)
-    }
-    </>
-    
+    </div>
   );
 }

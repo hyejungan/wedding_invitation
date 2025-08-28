@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 :root {
   --bg: #fff;
@@ -6,10 +7,10 @@
   --text: #111113;
   --text-dg: #0a270a;
   --text-lg : #809E70;
-  --text-muted: #37393b; /* gray-500ish */
-  --primary: #111113;    /* near-black for high contrast */
-  --secondary: #f2f2f6;  /* soft gray */
-  --accent: #ffdfe7;     /* soft pink accent */
+  --text-muted: #37393b; 
+  --primary: #111113;   
+  --secondary: #f2f2f6;  
+  --accent: #ffdfe7;     
   --glass: rgba(255,255,255,0.7);
   --border: rgba(0,0,0,0.12);
 

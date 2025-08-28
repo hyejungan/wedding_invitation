@@ -1,0 +1,46 @@
+/* src/components/hero.css */
+.hero {
+  position: relative;
+  min-height: 100svh; /* 모바일 주소창 고려 */
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+  background: #fff; /* 필요시 배경 이미지/그라데이션 */
+}
+
+.hero-inner {
+  max-width: 900px;
+}
+
+.hero-title {
+  font-size: clamp(28px, 7vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #2a2a2a;
+}
+
+.hero-names {
+  margin-top: 10px;
+  font-size: clamp(20px, 3.8vw, 28px);
+  font-weight: 600;
+  color: #5a5a5a;
+}
+
+.hero-sub {
+  margin-top: 6px;
+  font-size: clamp(14px, 2.4vw, 18px);
+  color: #7b7b7b;
+}
+
+.hero-sub .dot { opacity: 0.5; margin: 0 6px; }
+
+.scroll-ind {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #777;
+}

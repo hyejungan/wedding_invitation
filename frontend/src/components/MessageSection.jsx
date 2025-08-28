@@ -41,8 +41,12 @@ export default function MessageSection({ brand = "#809E70" }) {
     (async () => {
       try {
         setLoading(true);
-        const rows = await fetchMessages();
-        setItems(rows.map(r => ({ ...r, createdAt: new Date(r.created_at || r.createdAt).getTime() })));
+        const resp = await fetchMessages();
+        const list = Array.isArray(resp) ? resp : (resp.items || []);
+        setItems(list.map(r => ({
+          ...r,
+          createdAt: new Date(r.created_at || r.createdAt).getTime()
+        })));
       } catch (e) {
         console.warn("fetchMessages failed:", e); 
         setItems([]); 

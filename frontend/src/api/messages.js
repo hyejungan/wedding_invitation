@@ -18,8 +18,10 @@ async function req(path, options = {}) {
   return r.status === 204 ? null : r.json();
 }
 
-export const fetchMessages = ({ limit = 100, offset = 0 } = {}) =>
-  req(`/api/messages?limit=${limit}&offset=${offset}`);
+export const fetchMessages = ({ limit=100, offset=0 } = {}) =>
+  req(`/api/messages?limit=${limit}&offset=${offset}`)
+    .then(r => r?.items ?? []); 
+
 
 export const createMessage = ({ name, password, content }) =>
   req(`/api/messages`, {

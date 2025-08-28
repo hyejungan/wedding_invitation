@@ -11,22 +11,30 @@ const app = express();
 app.use(helmet());
 app.use(express.json({ limit: "20kb" }));
 
-const allowList = (process.env.CORS_ORIGIN || "")
-  .split(",")
-  .map(s => s.trim())
-  .filter(Boolean);
+const allowList = new Set(
+  (process.env.CORS_ORIGIN || "")
+    .split(",")
+    .map(s => s.trim())
+    .filter(Boolean)
+);
 
 app.use(cors({
   origin: (origin, cb) => {
-    // origin == undefined 는 curl/서버사이드/헬스체크 같은 경우 허용
-    if (!origin || allowList.includes(origin)) return cb(null, true);
-    return cb(new Error("Not allowed by CORS: " + origin));
+    // 서버 사이드/헬스체크 등 Origin 없는 경우 허용
+    if (!origin) return cb(null, true);
+    // 정확 매칭 허용만
+    if (allowList.has(origin)) return cb(null, true);
+    // 허용 안 할 때는 에러 던지지 않고 false (브라우저가 CORS로 차단)
+    return cb(null, false);
   },
-  credentials: false
+  methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"],
+  allowedHeaders: ["Content-Type"],      // 프리플라이트에서 요청하는 헤더 반영
+  optionsSuccessStatus: 204
 }));
 
-// 프리플라이트(OPTIONS)도 확실히 통과
+// 프리플라이트도 확실히 통과
 app.options("*", cors());
+
 const ah = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
 
 /** 유틸 */
@@ -77,14 +85,22 @@ app.post("/api/messages", ah(async (req, res) => {
 /** 삭제 */
 app.delete("/api/messages/:id", ah(async (req, res) => {
   const id = Number(req.params.id);
-  const password = String(req.body?.password ?? "");
-  const [[row]] = await pool.query(`SELECT id, password_hash FROM messages WHERE id=?`, [id]);
+  const password = String(req.body?.password ?? req.query?.password ?? "");
+  if (!password) return res.status(400).json({ error: "password_required" });
+
+  const [[row]] = await pool.query(
+    `SELECT id, password_hash FROM messages WHERE id=?`,
+    [id]
+  );
   if (!row) return res.status(404).json({ error: "not_found" });
+
   const ok = await bcrypt.compare(password, row.password_hash);
   if (!ok) return res.status(403).json({ error: "wrong_password" });
+
   await pool.query(`UPDATE messages SET deleted_at = NOW() WHERE id = ?`, [id]);
   res.json({ ok: true });
 }));
+
 
 // 디버그: DB 핑
 app.get("/debug/db", ah(async (_req, res) => {

@@ -86,7 +86,7 @@ const handleAdd = async ({ name, password, content }) => {
   return (
     <section className="msg-wrap">
       <header className="msg-header">
-        <h1 className="mt-20 mb-8">MESSAGE</h1>
+        <h1 className="mb-8">MESSAGE</h1>
       </header>
 
       <div className="msg-board" style={{ "--brand": brand }}>

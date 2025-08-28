@@ -8,13 +8,11 @@ export default function DirectionsSection({
   address,
   lat,
   lng,
-  shareUrl,
-  accordionItems = [],
 }) {
   return (
     <section className="directions-section">
       <header className="mt-20">
-        <h1 className="mb-8">오시는 길</h1>
+        <h1 className="mb-8">LOCATION</h1>
         <p className="dir-title">{placeName}</p>
         <p className="dir-sub">{address}</p>
         <p className="small">Tel. 051-404-5011</p>

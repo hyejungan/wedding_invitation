@@ -5,10 +5,10 @@ export default function Reveal({
   as: Tag = "div",
   children,
   className,
-  y = 24,
+  y = 12,
   delay = 0,
   duration = 0.6,
-  amount = 0.6,
+  amount = 0.3,
   once = true,
 }) {
   return (

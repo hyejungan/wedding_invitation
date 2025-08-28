@@ -9,7 +9,6 @@ import AlbumSection from "./components/AlbumSection";
 import albumPhotos from "./const/albumPhotos";
 import DirectionsSection from "./components/DirectionSection";
 import LOCATION from "./const/location";
-import directionsAccordion from "./const/directionAccordion";
 import CONTACTS from './const/contacts';
 import ContactSection from "./components/ContactSection";
 import { TABS, LABELS, GUIDE, BUSAN_SHUTTLE, CHARTER } from "./const/transport";
@@ -66,23 +65,23 @@ export default function App() {
         <section className="section">
           <Reveal>
             <div className="center">
-              <h3 className="text-b-dg">
+              <h2 className="text-b-dg mb-16">
                 소중한 분들을
                 <br /> 초대합니다.
-              </h3>
+              </h2>
               <div className="mt-10 flex-c">
                 <RevealStagger>
-                  <p>
+                  <p className="mb-8">
                     낯선 여행지에서 서로 닮은 얼굴을 마주보며 나눈 웃음은
                     <br />
                     평생의 사랑을 약속하게 했습니다.
                   </p>
-                  <p>
+                  <p className="mb-8">
                     따뜻한 겨울, 부부로서
                     <br />
                     새로운 여행을 함께 떠나려 합니다.
                   </p>
-                  <p>
+                  <p className="mb-8">
                     저희 여행의 출발점에 초대드리오니
                     <br />
                     오셔서 많이 축복해 주시면 큰 기쁨이겠습니다
@@ -92,7 +91,7 @@ export default function App() {
             </div>
           </Reveal>
 
-          <Reveal y={20} delay={0.1}>
+          <Reveal >
             <div className="mt-12 center">
               <p className="text-b-lg">
                 {CONTACTS.groom[1].name} ・ {CONTACTS.groom[2].name}{" "}
@@ -128,8 +127,6 @@ export default function App() {
             address={LOCATION.address}
             lat={LOCATION.lat}
             lng={LOCATION.lng}
-            shareUrl="https://naver.me/F1rxqNQ8"
-            accordionItems={directionsAccordion}
           />
         </Reveal>
 
@@ -147,13 +144,6 @@ export default function App() {
           <MessageSection brand="#809E70" />
         </Reveal>
       </main>
-
-      <div className="floating-bar">
-        <button className="btn btn-primary">저장</button>
-        <a className="btn btn-outline" href="#map">
-          지도
-        </a>
-      </div>
     </div>
   );
 }

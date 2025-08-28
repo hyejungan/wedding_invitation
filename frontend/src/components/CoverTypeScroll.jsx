@@ -5,7 +5,7 @@ export default function CoverTypeScroll({
   coverSrc,
   text = "FOREVER\nSTARTS NOW",
   color = "#83ACBE",
-  topOffset = 50,     // px: 상단 고정 위치
+  topOffset = 95,     // px: 상단 고정 위치
   speed = 3000,       // ↑ 숫자 클수록 더 느리게
   startAfterGestures = 3
 }) {

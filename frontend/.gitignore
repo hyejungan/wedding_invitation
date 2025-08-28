@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+
+# Node/caches
+**/node_modules/
+**/.cache/
+**/.cache/gh-pages/
+
+# Builds
+**/build/
+**/dist/
+
+# Envs (비밀 보호)
+**/.env
+**/.env.*
+!**/.env.example
+!frontend/.env.production
+
+# Logs/coverage
+*.log
+coverage/

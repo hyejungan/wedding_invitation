@@ -4,11 +4,15 @@ dotenv.config();
 
 export const pool = mysql.createPool({
   host: process.env.DB_HOST,
-  port: +process.env.DB_PORT || 3306,
+  port: +(process.env.DB_PORT || 3306),
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   connectionLimit: 10,
   namedPlaceholders: true,
-  charset: "utf8mb4"
+  charset: "utf8mb4",
+  ssl: {
+    ca: process.env.MYSQL_CA_CERT,
+    rejectUnauthorized: true
+  }
 });

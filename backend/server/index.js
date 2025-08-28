@@ -102,3 +102,14 @@ app.use((err, req, res, _next) => {
     });
   }
 });
+
+process.on("uncaughtException", e => console.error("UNCAUGHT", e?.stack || e));
+process.on("unhandledRejection", e => console.error("UNHANDLED", e?.stack || e));
+console.log("Booting API", {
+  cwd: process.cwd(),
+  node: process.version,
+  env: { PORT: process.env.PORT, DB_HOST: process.env.DB_HOST, DB_NAME: process.env.DB_NAME }
+});
+
+const port = Number(process.env.PORT) || 4000;
+app.listen(port, "0.0.0.0", () => console.log(`API on http://localhost:${port}`));

@@ -10,12 +10,23 @@ dotenv.config();
 const app = express();
 app.use(helmet());
 app.use(express.json({ limit: "20kb" }));
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN?.split(",") ?? "*"
-  })
-);
-app.use(morgan("dev"));
+
+const allowList = (process.env.CORS_ORIGIN || "")
+  .split(",")
+  .map(s => s.trim())
+  .filter(Boolean);
+
+app.use(cors({
+  origin: (origin, cb) => {
+    // origin == undefined 는 curl/서버사이드/헬스체크 같은 경우 허용
+    if (!origin || allowList.includes(origin)) return cb(null, true);
+    return cb(new Error("Not allowed by CORS: " + origin));
+  },
+  credentials: false
+}));
+
+// 프리플라이트(OPTIONS)도 확실히 통과
+app.options("*", cors());
 
 /** 유틸 */
 const sanitize = (s, max = 200) =>

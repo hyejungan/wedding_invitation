@@ -2,24 +2,24 @@ import React, { useEffect, useRef, useMemo, useState } from "react";
 import "../style/cover-typing.css";
 
 export default function CoverTypeScroll({
-  coverSrc,
+  src,
   text = "FOREVER\nSTARTS NOW",
   color = "#83ACBE",
-  topOffset = 95,     // px: 상단 고정 위치
-  speed = 3000,       // ↑ 숫자 클수록 더 느리게
+  topOffset = 95,     
+  speed = 3000,    
   startAfterGestures = 3
 }) {
-  const [p, setP] = useState(0);     // 0~1 진행률
+  const COVER = `${process.env.PUBLIC_URL}/hero/cover.png`;
+  const [p, setP] = useState(0); 
   const pRef = useRef(0);
   const raf = useRef(null);
   const pend = useRef(0);
 
-  const lockedRef = useRef(true);    // true 동안 페이지 스크롤 잠금
-  const startedRef = useRef(false);     // 타이핑 시작 여부
-  const gestureCountRef = useRef(0);    // 누적 제스처 횟수
+  const lockedRef = useRef(true);  
+  const startedRef = useRef(false); 
+  const gestureCountRef = useRef(0);   
   const lastWheelAtRef = useRef(0);   
 
-  // 문자 배열(공백/줄바꿈 처리)
   const chars = useMemo(() => {
     const out = [];
     for (const ch of text) {
@@ -31,7 +31,6 @@ export default function CoverTypeScroll({
   const N = chars.filter(c => c.type === "ch").length; // 실제 글자 수
   const shownChars = Math.max(0, Math.min(N, Math.round(p * N)));
 
-  // 진입 시 잠금
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -68,7 +67,6 @@ export default function CoverTypeScroll({
       if (!raf.current) raf.current = requestAnimationFrame(flush);
     };
 
-    // 휠
     const onWheel = (e) => {
       if (!lockedRef.current) return;
       e.preventDefault();
@@ -77,7 +75,6 @@ export default function CoverTypeScroll({
       if (startedRef.current) schedule(e.deltaY);
     };
 
-    // 터치
     let dragging = false, lastY = 0;
     const onTS = (e) => { if (!lockedRef.current) return; dragging = true; lastY = e.touches[0].clientY; bumpGestureCount(); };
     const onTM = (e) => {
@@ -103,7 +100,6 @@ export default function CoverTypeScroll({
     };
   }, [speed, startAfterGestures]);
 
-  // 글자별 opacity 계산(왼쪽→오른쪽 순서)
   let revealedCount = 0;
   const renderChars = chars.map((c, idx) => {
     if (c.type === "br") return <br key={`br-${idx}`} />;
@@ -114,7 +110,7 @@ export default function CoverTypeScroll({
         key={`ch-${idx}`}
         className="char"
         style={{ opacity: visible ? 1 : 0 }}
-        aria-hidden={!visible} // 스크린리더 배려
+        aria-hidden={!visible} 
       >
         {c.v}
       </span>
@@ -124,10 +120,9 @@ export default function CoverTypeScroll({
   return (
     <section className="cover-type-wrap">
       <div className="cover-bg">
-        <img src={coverSrc} alt="cover" />
+        <img src={src} alt="cover" />
       </div>
 
-      {/* 섹션 내부 고정(absolute) - 레이아웃 흔들림 없음 */}
       <div className="cover-text-abs" style={{ top: `${topOffset}px` }}>
         <div className="cover-text" style={{ color }} aria-label={text}>
           {renderChars}

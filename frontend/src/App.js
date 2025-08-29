@@ -1,6 +1,6 @@
 // App.jsx
 import "./style/global.css";
-import coverImg from "./assets/cover.png";
+import coverImg from './assets/cover.png'
 import WeddingSection from "./components/WeddingSection";
 import DayBox from "./components/DayBox";
 import { getDiffParts, WEDDING_TIME } from "./utils/create_day";
@@ -58,8 +58,7 @@ export default function App() {
   return (
     <div className="hero-bg">
       <main className="container">
-        <CoverTypeScroll
-          coverSrc={coverImg}
+        <CoverTypeScroll src={coverImg}
         />
 
         <section className="section">
@@ -117,7 +116,6 @@ export default function App() {
           title="GALLERY"
           images={albumPhotos}
           horizontal
-          onImageClick={(idx) => console.log("Clicked:", idx)}
         />
 
 

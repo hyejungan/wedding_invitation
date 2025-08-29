@@ -2,14 +2,13 @@
   position: relative;
   height: 100svh;
   min-height: 100vh;
-  overflow: clip;
+  /* overflow: clip; */
 }
 
 .cover-bg{ position: absolute; inset: 0; }
 .cover-bg img{
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  display: block;
+  width: 100%; 
+  object-position: center;
 }
 
 /* 섹션 안에서 고정 */

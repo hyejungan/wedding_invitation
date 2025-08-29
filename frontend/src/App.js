@@ -1,4 +1,3 @@
-// App.jsx
 import "./style/global.css";
 import coverImg from './assets/cover.png'
 import WeddingSection from "./components/WeddingSection";

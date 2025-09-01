@@ -16,6 +16,8 @@ import MessageSection from "./components/MessageSection";
 import CoverTypeScroll from "./components/CoverTypeScroll";
 import Reveal from "./components/Reveal";
 import RevealStagger from "./components/RevealStagger";
+import InfoCarousel from "./components/InfoCarousel";
+import slides from "./const/notice";
 
 const MAINTENANCE = false;
 
@@ -140,6 +142,21 @@ export default function App() {
         <Reveal y={28} >
           <MessageSection brand="#809E70" />
         </Reveal>
+
+        <Reveal>
+          <InfoCarousel slides={slides}/>
+        </Reveal>
+
+        <div className="mt-20">
+          <p>'                                              <br/>
+          <br/>
+          <br/>
+          
+          
+          
+          
+          '</p>
+        </div>
       </main>
     </div>
   );

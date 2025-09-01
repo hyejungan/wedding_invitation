@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/wedding_invitation/static/css/main.a7af2679.css",
-    "main.js": "/wedding_invitation/static/js/main.dc0520f2.js",
+    "main.js": "/wedding_invitation/static/js/main.fa75d74c.js",
     "static/media/cover.png": "/wedding_invitation/static/media/cover.d14aca58a2337fa72509.png",
     "index.html": "/wedding_invitation/index.html",
     "main.a7af2679.css.map": "/wedding_invitation/static/css/main.a7af2679.css.map",
-    "main.dc0520f2.js.map": "/wedding_invitation/static/js/main.dc0520f2.js.map"
+    "main.fa75d74c.js.map": "/wedding_invitation/static/js/main.fa75d74c.js.map"
   },
   "entrypoints": [
     "static/css/main.a7af2679.css",
-    "static/js/main.dc0520f2.js"
+    "static/js/main.fa75d74c.js"
   ]
 }

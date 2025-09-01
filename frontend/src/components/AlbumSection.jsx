@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import Modal from "../modal/GalleryModal";
+import SwipeHint from "./SwipeHint";
 import "../style/global.css";
+import "../style/swipe-hint.css"; 
+import handSVG from "../assets/hand-rtl.svg";
 
 const getSrc = (item, kind = "tile") => {
   if (typeof item === "string") return item;
@@ -88,6 +91,12 @@ export default function AlbumSection({
             );
           })}
         </div>
+        <SwipeHint
+          targetRef={scrollRef}
+          storageKey="hint:album"
+          text="왼쪽으로 움직여주세요"
+          handSrc={handSVG} 
+        />
       </div>
 
       {openIndex !== null && (

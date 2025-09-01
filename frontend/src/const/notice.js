@@ -16,13 +16,14 @@ const slides = [
   {
     title: "부산역 셔틀버스",
     body:
-      "부산역 셔틀버스는 예식 전 \n \"편도\"로 운행될 예정입니다.",
+      "부산역 셔틀버스는 예식 전 편도만 운행될 예정입니다.",
     imgSrc: null, // 예: `${process.env.PUBLIC_URL}/album/shuttle.jpg`
   },
   {
     title: "편의시설",
     body:
-      "웨딩홀 내 현금자동입출금기(ATM)가 \n 마련되어 있지 않습니다. 양해부탁드립니다.",
+      "웨딩홀 내 현금자동입출금기(ATM)가  마련되어 있지 않습니다. \n" + 
+      "양해부탁드립니다.",
     imgSrc: null, // 예: `${process.env.PUBLIC_URL}/album/shuttle.jpg`
   },
   

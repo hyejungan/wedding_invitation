@@ -1,0 +1,59 @@
+/* 오버레이(앨범 박스 기준) */
+.album-box{ position: relative; }
+
+.swipe-hint{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;              /* 스크롤/클릭 방해 X */
+  z-index: 5;
+}
+
+/* 카드형 반투명 배경 */
+.swipe-card{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+}
+
+/* 손가락이 오른쪽 -> 왼쪽으로 이동 */
+.swipe-track{
+  position: relative;
+  width: 160px;              /* 궤적 너비 */
+  height: 44px;
+  overflow: hidden;
+}
+.hand-img{
+  position: absolute;
+  top: 0;
+  right: -8px;               /* 살짝 오른쪽 밖에서 시작 */
+  width: 44px; height: 44px;
+  animation: swipe-rtl 1.8s ease-in-out infinite;
+  opacity: .9;
+}
+
+@keyframes swipe-rtl {
+  0%   { transform: translateX(26px); opacity: 0; }
+  18%  { opacity: .95; }
+  65%  { transform: translateX(-150px); opacity: .95; }
+  100% { transform: translateX(-170px); opacity: 0; }
+}
+
+/* 안내 문구 */
+.swipe-text{
+  font-size: 13px;
+  color: #333;
+  letter-spacing: .02em;
+}
+
+/* 모션 민감 사용자 */
+@media (prefers-reduced-motion: reduce){
+  .hand-img{ animation: none; }
+}

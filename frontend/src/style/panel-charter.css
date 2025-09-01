@@ -1,0 +1,70 @@
+/* 리스트 전체 */
+.charter-list{
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+
+  display: grid;
+  row-gap: 10px;
+}
+
+/* 한 행: 왼쪽/오른쪽 두 컬럼 */
+.charter-row{
+  display: grid;
+  align-items: center;
+  column-gap: 16px;
+  /* 글자 높이 조절 */
+  line-height: 1.7;
+}
+
+/* 왼쪽: 하트 + 타이틀 */
+.charter-left{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap; /* 타이틀은 줄바꿈 안 함(필요하면 제거) */
+}
+.charter-left .title{
+  color: #222;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.charter-left .heart{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px; height: 16px;
+}
+
+/* 오른쪽: 장소 · 시간 (시간은 오른쪽 끝) */
+.charter-right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 0 0 24px;
+  gap: 12px;
+  min-width: 0; 
+}
+.charter-right .location{
+  color: #222;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.charter-right .time{
+  color: #444;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums; /* 시간 숫자 정렬 깔끔 */
+}
+
+/* 아주 좁은 화면에서는 시간 줄바꿈 (두 줄 레이아웃) */
+@media (max-width: 360px){
+  .charter-right{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .charter-right .time{
+    opacity: .8;
+  }
+}

@@ -4,7 +4,7 @@ import PanelGuide from "./PanelGuide";
 import PanelBusanShuttle from "./PanelBusanShuttle";
 import PanelCharter from "./PanelCharter";
 
-export default function TransportTabs({ tabs, labels, guide, busan, charter }) {
+export default function TransportTabs({ tabs, labels, guide, busan, country }) {
   const [active, setActive] = useState(tabs?.[0]?.id ?? "guide");
 
   const pageRefs = useRef([]);
@@ -17,7 +17,7 @@ export default function TransportTabs({ tabs, labels, guide, busan, charter }) {
     setMaxH(m || null);
   }, []);
 
-  useLayoutEffect(() => { measure(); }, [measure, guide, busan, charter, tabs]);
+  useLayoutEffect(() => { measure(); }, [measure, guide, busan, country, tabs]);
   useEffect(() => {
     const onResize = () => measure();
     window.addEventListener("resize", onResize);
@@ -27,7 +27,7 @@ export default function TransportTabs({ tabs, labels, guide, busan, charter }) {
   const pages = {
     guide:  <PanelGuide labels={labels} data={guide} />,
     busan:  <PanelBusanShuttle labels={labels} data={busan} />,
-    charter:<PanelCharter labels={labels} data={charter} />,
+    country:<PanelCharter labels={labels} data={country} />,
   };
 
   return (

@@ -24,7 +24,7 @@ export default function ContactSection({ contacts }) {
       <div className="contact-pill-wrap">
         <button className="contact-pill" type="button" onClick={() => setOpen(true)}>
           <PhoneIcon />
-          <span>연락하기</span>
+          <span className="small">연락하기</span>
         </button>
       </div>
 

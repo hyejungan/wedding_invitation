@@ -9,7 +9,6 @@ export default function CoverTypeScroll({
   speed = 3000,
   startAfterGestures = 3,
 
-  // (선택) 필요하면 prop으로 조절도 가능
   touchSpeed = 1200,     // 터치일 때 더 빠르게 진행
   touchBoost = 1.8,      // 터치 이동량 배수
   touchClamp = 600,      // 터치 delta 클램프
@@ -25,7 +24,6 @@ export default function CoverTypeScroll({
   const gestureCountRef = useRef(0);
   const lastWheelAtRef = useRef(0);
 
-  // 마지막 입력 방식 기억 ( 'wheel' | 'touch' )
   const lastInputRef = useRef("wheel");
   const isCoarse = typeof window !== "undefined"
     && window.matchMedia?.("(pointer: coarse)")?.matches;

@@ -1,0 +1,32 @@
+.notice-section{
+  width: clamp(280px, 92vw, 420px);
+  margin: 0 auto 36px;
+}
+
+.notice-heading{
+  text-align: center;
+  letter-spacing: .08em;
+  font-weight: 400;
+  margin: 12px 0 100px;
+}
+
+.notice-items{
+  display: grid;
+  gap: 70px;
+}
+
+.notice-title{
+  text-align: center;
+  color: #b79b3d;
+  margin: 2px 0 30px;
+  font-size: clamp(15px, 2.6vw, 18px);
+  letter-spacing: .02em;
+}
+
+.notice-text{
+  text-align: center;
+  margin: 6px 0;
+  font-size: clamp(12px, 2.4vw, 15px);
+  line-height: 1.75;
+  color: #333;
+}

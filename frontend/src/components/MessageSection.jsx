@@ -96,8 +96,8 @@ const handleAdd = async ({ name, password, content }) => {
       </div>
 
       <div className="msg-footer">
-        <button className="btn-pill btn-ghost" onClick={()=>setOpen(true)}>
-          메시지 남기기
+        <button className="btn-pill btn-ghost small" onClick={()=>setOpen(true)}>
+          ✉️ 메시지 남기기
         </button>
       </div>
 

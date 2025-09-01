@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
 :root {
+  --page-max: 420px;
   --bg: #fff;
   --bg-soft: #f7f7fb;
   --text: #111113;
@@ -40,8 +41,10 @@
 }
 html,
 body,
-#root {
+#root{
   height: 100%;
+  width: min(100vw, var(--page-max));
+  margin-inline: auto;
 }
 html {
   -webkit-text-size-adjust: 100%;
@@ -73,7 +76,6 @@ a {
   text-decoration: none;
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
@@ -83,9 +85,8 @@ a {
 
 /* === Layout helpers === */
 .container {
-  /* Content stays mobile-sized even on desktop */
   width: 100%;
-  max-width: 420px; /* mobile comfort width */
+  max-width: 420px; 
   margin: 0 auto;
 }
 .section {
@@ -126,7 +127,6 @@ a {
   align-items: center;
 }
 
-/* Soft backdrop blobs for hero (optional) */
 .hero-bg {
   position: relative;
 }
@@ -369,6 +369,25 @@ hr {
   font-weight: 500;
 }
 
+.photo-fade{
+  --top: 0%;          
+  --bottom: 26%;    
+  --bg: #fff;
+
+  background: var(--bg);
+  overflow: hidden;
+  position: relative;
+}
+.photo-fade img{
+  display:block; width:100%; height:auto;
+  -webkit-mask:
+    linear-gradient(to bottom, transparent, #000 var(--top)) top/100% 75% no-repeat,
+    linear-gradient(to top,    transparent, #000 var(--bottom)) bottom/100% 75% no-repeat;
+          mask:
+    linear-gradient(to bottom, transparent, #000 var(--top)) top/100% 75% no-repeat,
+    linear-gradient(to top,    transparent, #000 var(--bottom)) bottom/100% 75% no-repeat;
+}
+
 .wg-wrap {
   width: 100%;
 }
@@ -470,12 +489,12 @@ hr {
 /* 컨테이너/레이아웃(기존 album CSS와 함께 사용)
    — 큰 화면에서도 항상 드래그 필요하도록 폭 상한 */
 .album-section {
-  --album-max: 560px; /* 420~720에서 취향대로 조절 */
-  --gap: 1px;
-  --rows: 3;
-  --cols-visible: 3;
+  --album-max: 420px; /* 420~720에서 취향대로 조절 */
+  --gap: 6px;
+  --rows: 4;
+  --cols-visible: 2;
   --pad-x: 16px;
-  background: var(--beige);
+  
   margin: 150px -16px 0;
   padding: 150px 16px 150px;
 }
@@ -548,6 +567,7 @@ hr {
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   scroll-snap-align: start;
+  border-radius: 4px;
 }
 
 .album-tile img {
@@ -756,14 +776,14 @@ hr {
 .contact-pill-wrap {
   display: flex;
   justify-content: center;
-  margin: 70px 0 0;
+  margin: 20px 0 0;
 }
 .contact-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 10px;
-  border-radius: 999px;
+  padding: 8px 45px;
+  border-radius: 10px;
   border: 1px solid #e9e9ee;
   background: #fff;
   font-size: 16px;

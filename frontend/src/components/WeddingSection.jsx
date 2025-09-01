@@ -51,7 +51,7 @@ export default function WeddingSection({ parts, DayBox }) {
       )}
 
       {(dDay < 0 || isAfter2PM) && (
-        <AfterBlock customMessage="희락아! 우리 행복하게 잘 살자💜" />
+        <AfterBlock customMessage="신혼 쀼가 된 희락 💜 혜정" />
       )}
     </section>
   );

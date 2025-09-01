@@ -105,8 +105,9 @@ a {
 
 .flex-row {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  gap: 12px;
 }
 
 .day-box {
@@ -114,8 +115,8 @@ a {
 }
 
 .day-box-content {
-  width: 90px;
-  height: 100px;
+  width: 70px;
+  height: 60px;
   border-radius: 10px;
   box-shadow: var(--shadow-hard);
 }
@@ -325,6 +326,9 @@ hr {
 }
 .mt-12 {
   margin-top: var(--space-12);
+}
+.mt-16 {
+  margin-top: var(--space-16);
 }
 .mt-20 {
   margin-top: var(--space-20);

@@ -170,7 +170,7 @@ export default function App() {
         <Reveal>
           <div
             className="photo-fade"
-            style={{ "--bottom": "12%", "--top": "35%" }}
+            style={{ "--bottom": "0%", "--top": "35%" }}
           >
             <img src={coverImg3} alt=''/>
           </div>

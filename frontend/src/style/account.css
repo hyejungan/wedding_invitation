@@ -5,7 +5,7 @@
 
 /* 섹션 전체 (가운데 고정폭 420) */
 .account-wrap{
-  margin: 140px 0 100px;
+  margin: 140px 0 20px;
 }
 .account-inner,
 .account-header{

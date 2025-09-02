@@ -28,6 +28,7 @@ import slides from "./const/notice";
 import NoticeSection from "./components/NoticeSection";
 import AccountSection from "./components/AccountSection";
 import { brideAccounts, groomAccounts } from "./const/accounts";
+import InviteShare from "./components/InviteShare";
 
 const MAINTENANCE = false;
 
@@ -79,7 +80,7 @@ export default function App() {
                 소중한 분들을
                 <br /> 초대합니다.
               </h2>
-              <hr style={{'width' : '70px', 'margin' : '0 auto 100px'}}></hr>
+              <hr style={{ width: "70px", margin: "0 auto 100px" }}></hr>
               <div className="mt-10 flex-c">
                 <RevealStagger>
                   <p className="mb-8">
@@ -106,7 +107,7 @@ export default function App() {
               className="photo-fade"
               style={{ "--bottom": "25%", "--top": "0%" }}
             >
-              <img src={coverImg2} alt=''/>
+              <img src={coverImg2} alt="" />
             </div>
           </Reveal>
 
@@ -172,17 +173,15 @@ export default function App() {
             className="photo-fade"
             style={{ "--bottom": "0%", "--top": "35%" }}
           >
-            <img src={coverImg3} alt=''/>
+            <img src={coverImg3} alt="" />
           </div>
         </Reveal>
-
-        <div className="mt-20">
-          <p>
-            ' <br />
-            <br />
-            <br />'
-          </p>
-        </div>
+        <InviteShare
+          label="초대장 보내기"
+          title="희락 · 혜정 청첩장"
+          text="11.15(토) 오후 2시, 영도 목장원 야외웨딩홀"
+          url="https://hyejungan.github.io/wedding_invitation"
+        />
       </main>
     </div>
   );

@@ -499,8 +499,8 @@ hr {
   --cols-visible: 2;
   --pad-x: 16px;
   
-  margin: 150px -16px 0;
-  padding: 150px 16px 150px;
+  /* margin: 150px -16px 0; */
+  padding: 150px 0 150px 16px;
 }
 @media (min-width: 421px) {
   .album-section {
@@ -520,7 +520,7 @@ hr {
 }
 
 .album-title {
-  width: min(100%, var(--album-max));
+  width: 100%;
   margin: -40px auto 70px;
   text-align: center;
   font-weight: 600;
@@ -530,7 +530,7 @@ hr {
 /* 가로 스크롤 그리드 */
 .album-scroll {
   box-sizing: border-box;
-  width: min(100%, var(--album-max));
+  width: 100%;
   margin: 0 auto;
 
   display: grid;

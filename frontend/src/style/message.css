@@ -11,7 +11,7 @@
 /* 래퍼 */
 .msg-wrap{
   background: #F7F7F4;              /* 섹션 배경 */
-  margin: 150px -16px;               /* 모바일에서 좌우 끝까지 배경 채우기 */
+  /* margin: 150px -16px;               모바일에서 좌우 끝까지 배경 채우기 */
   padding: 70px 16px 40px;
 }
 .msg-header {

@@ -17,7 +17,7 @@ export default function WeddingCalendar() {
       <Calendar
         className="wc"
         locale="ko-KR"
-        calendarType="gregory"           // ✅ 일요일 시작
+        calendarType="gregory"         
         value={WEDDING_DATE}
         activeStartDate={startOfMonth}
         showNavigation={false}

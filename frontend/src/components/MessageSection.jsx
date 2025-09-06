@@ -1,4 +1,3 @@
-// src/components/messages/MessageSection.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import { fetchMessages, createMessage, deleteMessage } from "../api/messages";
 import MessageModal from "../modal/MessageModal";

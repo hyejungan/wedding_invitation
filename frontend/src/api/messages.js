@@ -1,6 +1,5 @@
-// src/api/messages.js
 const envBase = (process.env.REACT_APP_API_BASE || "").replace(/\/+$/, "");
-const base = envBase; // 개발: "", 배포: "https://<배포된 API 주소>"
+const base = envBase; 
 
 async function req(path, options = {}) {
   const r = await fetch(`${base}${path}`, {

@@ -55,7 +55,6 @@ export default function CoverTypeScroll({
 
   useEffect(() => {
     const flush = () => {
-      // 입력 방식별로 다른 클램프/속도 적용
       const mode = lastInputRef.current; // 'wheel' | 'touch'
       const clampMax = mode === "touch" ? touchClamp : wheelClamp;
       const denom = mode === "touch" ? touchSpeed : speed;
@@ -102,14 +101,13 @@ export default function CoverTypeScroll({
       if (!lockedRef.current) return;
       dragging = true;
       lastY = e.touches[0].clientY;
-      bumpGestureCount(); // 터치는 1번만으로 시작
+      bumpGestureCount(); 
     };
     const onTM = (e) => {
       if (!lockedRef.current || !dragging) return;
       e.preventDefault();
       const y = e.touches[0].clientY;
       if (startedRef.current) {
-        // 터치 이동량을 부스트해서 느리지 않도록
         schedule((lastY - y) * touchBoost);
       }
       lastY = y;

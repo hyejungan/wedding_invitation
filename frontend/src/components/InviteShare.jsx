@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// lucide-react를 쓰고 있으니 아이콘 활용 (없으면 이 줄과 아이콘들을 이모지로 바꿔도 돼요)
 import { Share2, Link as LinkIcon, Check } from "lucide-react";
 import "../style/invite-share.css";
 

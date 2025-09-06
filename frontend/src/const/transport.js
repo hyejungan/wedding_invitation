@@ -1,4 +1,3 @@
-// 라벨(텍스트) — 필요하면 여기만 바꾸면 됨
 export const LABELS = {
   tabGuide: "교통안내",
   tabBusan: "부산역 셔틀",
@@ -12,14 +11,12 @@ export const LABELS = {
   timetableLabel: "운행 시간",
 };
 
-// 탭 구성 — 순서/표시 라벨
 export const TABS = [
   { id: "guide", label: LABELS.tabGuide },
   { id: "busan", label: LABELS.tabBusan },
   { id: "country", label: LABELS.tabCharter },
 ];
 
-// 콘텐츠 데이터
 export const GUIDE = {
   publicTransit: [
     "지하철 남포역 6번출구 하차 후 영도대교에서 버스 환승 7, 71, 508",
@@ -38,7 +35,6 @@ export const GUIDE = {
   parking: [{ place: "목장원 내부", capacity: "150대" }],
 };
 
-// 다른 탭들(비워두면 화면에 ‘탭’은 나오되 내용만 비어 있음)
 export const BUSAN_SHUTTLE = {
   pickup: "부산역사 1번출구 왼편 토요코인호텔",
   linesText: "KTX·SRT 하차 후 도보 이동",

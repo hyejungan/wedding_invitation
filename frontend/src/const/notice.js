@@ -20,14 +20,6 @@ const slides = [
     imgSrc: null, // 예: `${process.env.PUBLIC_URL}/album/shuttle.jpg`
   },
   {
-    title: "편의시설",
-    body:
-      "웨딩홀 내 현금자동입출금기(ATM)가  마련되어 있지 않습니다. \n" + 
-      "양해부탁드립니다.",
-    imgSrc: null, // 예: `${process.env.PUBLIC_URL}/album/shuttle.jpg`
-  },
-  
-  {
     title: "감사의 말씀",
     body:
       "먼 길 와주시는 모든 분들께 진심으로 감사드립니다.\n" +

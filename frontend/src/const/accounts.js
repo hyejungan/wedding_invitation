@@ -4,7 +4,7 @@ const groomAccounts = [
 ];
 
 const brideAccounts = [
-  { name: "박경영(母)", bank: "농협", number: "352-0863-7420-73" },
+  { name: "박경영(母)", bank: "농협", number: "352-0836-7420-73" },
   { name: "안혜정", bank: "카카오뱅크", number: "3333-03-0241346" },
 ];
 
